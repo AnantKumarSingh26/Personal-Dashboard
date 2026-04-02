@@ -1,0 +1,38 @@
+:root{
+    --pri:#fff;
+    --sec:#111;
+    -tri:lightseagreen;
+}
+@font-face {
+    font-family: aeonika;
+    font-weight: 200;
+    src: url(./AeonikTRIAL-Light.otf);
+}
+@font-face {
+    font-family: aeonika;
+    font-weight: 500;
+    src: url(./AeonikTRIAL-Regular.otf);
+}
+@font-face {
+    font-family: aeonika;
+    font-weight: 700;
+    src: url(./AeonikTRIAL-Bold.otf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    font-size: 44px;
+    font-family: aeonika;
+    font-weight: 200;
+}
