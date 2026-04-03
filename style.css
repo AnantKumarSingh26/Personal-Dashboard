@@ -1,8 +1,9 @@
 :root{
-    --pri:#fff;
-    --sec:#111;
-    -tri:lightseagreen;
-}
+    --pri:#201f1f;
+    --sec:#7d5a50;
+    --tri1:#e5b299;
+    --tri2:#b4846c;
+}   
 @font-face {
     font-family: aeonika;
     font-weight: 200;
@@ -22,7 +23,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: white;
+    color:var(--pri);
+    font-family: aeonika;
+    font-weight: 500;
 }
 html,body{
     width: 100%;
@@ -31,8 +34,19 @@ html,body{
 #main{
     height: 100%;
     width: 100%;
-    background-color: black;
+    background-color:var(--sec);
     font-size: 44px;
-    font-family: aeonika;
-    font-weight: 200;
+}
+nav{
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background-color: var(--tri2);
+}
+section.allElems{
+    height: 100%;
+    width: 100%;
+    padding: 40x;
+    padding-top: 80px;
+    background-color: var(--tri1);
 }
