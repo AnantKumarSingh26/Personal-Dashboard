@@ -1,9 +1,12 @@
 :root{
-    --pri:#201f1f;
-    --sec:#7d5a50;
-    --tri1:#e5b299;
-    --tri2:#b4846c;
-}   
+    --pri:#f8f4e1;
+    --sec:#675d4d;
+    --tri1:#DEC430;
+    --tri2:#765C40;
+}  
+favicon{
+    color: #DEC430;
+} 
 @font-face {
     font-family: aeonika;
     font-weight: 200;
@@ -31,10 +34,14 @@ html,body{
     width: 100%;
     height: 100%;
 }
+body{
+    background: linear-gradient(to bottom, var(--tri2), #2c3e50);
+    background-attachment: fixed;
+
+}
 #main{
     height: 100%;
     width: 100%;
-    background-color:var(--sec);
     font-size: 44px;
 }
 nav{
@@ -42,11 +49,51 @@ nav{
     width: 100%;
     height: 60px;
     background-color: var(--tri2);
+    z-index: 100;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 section.allElems{
     height: 100%;
     width: 100%;
     padding: 40x;
     padding-top: 80px;
+    /* background-color: var(--tri1); */
+    display: flex;
+    align-items: self-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    position: absolute;
+}
+.elem{
     background-color: var(--tri1);
+    font-size: 25px;
+    border-radius: 10px;
+    height: 400px;
+    width: 350px;
+    overflow: hidden;
+    position: relative;
+    transition: all ease 0.2s;
+}
+.elem img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.elem h2{
+    position: absolute;
+    font-weight: 400;
+    bottom: 4%;
+    right: 5%;
+}
+.elem:active{
+    scale: 0.91;
+}
+.fullElem{
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    font-size: 60px;
+    background-color: var(--tri2);
+    display: none;
 }
