@@ -17,5 +17,14 @@ function openFeatures() {
     })
 
 }
-
 openFeatures();
+
+let form = document.querySelector(".addTask form")
+let taskInput = document.querySelector(".addTask form input");
+let taskDetailsInput = document.querySelector(".addTask form textarea");
+
+form.addEventListener('submit',function(e){
+    e.preventDefault();
+     
+})
+
