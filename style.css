@@ -1,145 +1,229 @@
-:root{
-    --pri:#f8f4e1;
-    --sec:#675d4d;
-    --tri1:#DEC430;
-    --tri2:#765C40;
-}  
-favicon{
-    color: #DEC430;
-} 
-@font-face {
-    font-family: aeonika;
-    font-weight: 200;
-    src: url(./AeonikTRIAL-Light.otf);
+:root {
+  --pri: #ffffff;
+  --sec: #968871;
+  --tri1: #f6b846;
+  --tri2: #765c40;
+}
+favicon {
+  color: #dec430;
 }
 @font-face {
-    font-family: aeonika;
-    font-weight: 500;
-    src: url(./AeonikTRIAL-Regular.otf);
+  font-family: aeonika;
+  font-weight: 200;
+  src: url(./AeonikTRIAL-Light.otf);
 }
 @font-face {
-    font-family: aeonika;
-    font-weight: 700;
-    src: url(./AeonikTRIAL-Bold.otf);
+  font-family: aeonika;
+  font-weight: 500;
+  src: url(./AeonikTRIAL-Regular.otf);
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color:var(--pri);
-    font-family: aeonika;
-    font-weight: 500;
+@font-face {
+  font-family: aeonika;
+  font-weight: 700;
+  src: url(./AeonikTRIAL-Bold.otf);
 }
-html,body{
-    width: 100%;
-    height: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--pri);
+  font-family: aeonika;
+  font-weight: 500;
 }
-body{
-    background: linear-gradient(to bottom, var(--tri2), #2c3e50);
-    background-attachment: fixed;
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: linear-gradient(to bottom, var(--tri2), #2c3e50);
+  background-attachment: fixed;
+}
+#main {
+  height: 100%;
+  width: 100%;
+  font-size: 44px;
+}
+nav {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  background-color: var(--tri2);
+  z-index: 100;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+section.allElems {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  padding-top: 80px;
+  /* background-color: var(--tri1); */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: self-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  position: absolute;
+}
+.elem {
+  background-color: var(--tri1);
+  font-size: 25px;
+  border-radius: 10px;
+  height: 300px;
+  width: 240px;
+  overflow: hidden;
+  position: relative;
+  transition: all ease 0.2s;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px #2d2828;
+}
+.elem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.elem h2 {
+  position: absolute;
+  font-weight: 400;
+  bottom: 4%;
+  right: 5%;
+}
+.elem:active {
+  scale: 0.91;
+}
+.elem:hover {
+  scale: 1.05;
+  box-shadow: 0 0 20px rgb(248, 124, 124);
+}
+.fullElem {
+  margin-top: 7px;
+  /* border: 2px solid white; */
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+  /* font-size: 60px; */
+  background-color: var(--tri2);
+  display: none; /* Ensure your JS switches this to 'flex' instead of 'block' */
+  /* flex-direction: column; */
+  position: absolute;
 
 }
-#main{
-    height: 100%;
-    width: 100%;
-    font-size: 44px;
-}
-nav{
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    background-color: var(--tri2);
-    z-index: 100;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-section.allElems{
-    height: 100%;
-    width: 100%;
-    padding: 10px;
-    padding-top: 80px;
-    /* background-color: var(--tri1); */
-    display: flex;
-    justify-content: space-evenly;
-    align-items: self-start;
-    flex-wrap: wrap;
-    gap: 40px;
-    position: absolute;
-}
-.elem{
-    background-color: var(--tri1);
-    font-size: 25px;
-    border-radius: 10px;
-    height: 300px;
-    width:240px;
-    overflow: hidden;
-    position: relative;
-    transition: all ease 0.2s;
-    cursor: pointer;
-    box-shadow: 0px 0px 10px #2d2828;
-}
-.elem img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.elem h2{
-    position: absolute;
-    font-weight: 400;
-    bottom: 4%;
-    right: 5%;
-}
-.elem:active{
-    scale: 0.91;
-}
-.elem:hover{
-    scale:1.05;
-    box-shadow: 0 0 20px rgb(248, 124, 124);
-}
-.fullElem{
-
-    margin-top: 7px;
-    /* border: 2px solid white; */
-    min-height: 100%;
-    width: 100%;
-    padding: 40px;
-    /* font-size: 60px; */
-    background-color: var(--tri2);
-    display: none;
-    position: absolute;
-}
-.back{
-    border-radius: 50%;
-    padding: 0 0px;
-    color: #000;
-    border: none;
-    font-size: 40px;
-    position: absolute;
-    right: 5%;
-    top :8%;
-    /* display: flex;
+.back {
+  border-radius: 50%;
+  padding: 0 0px;
+  color: #000;
+  border: none;
+  font-size: 40px;
+  position: absolute;
+  right: 5%;
+  top: 8%;
+  /* display: flex;
     align-items: center;
     justify-content: center;
     width: 50px;         
     height: 50px; */
-    background-color: transparent;
+  background-color: transparent;
 }
-.back i{
-    color: rgb(255, 221, 221);
-    transition: all ease-in 0.2s;
+.back i {
+  color: rgb(255, 221, 221);
+  transition: all ease-in 0.2s;
 }
-.back i:active{
-    display: inline-block;
-    scale: 0.5;
-    color: rgb(255, 0, 0);
+.back i:active {
+  display: inline-block;
+  scale: 0.5;
+  color: rgb(255, 0, 0);
 }
-.back i:hover{
-    cursor: pointer;
+.back i:hover {
+  cursor: pointer;
 }
-.todo-list-fullpage .todo-container{
-    height: 80%;
+.todo-container {
+  height: 100%;
+  width: 100%;
+  margin-top: 20px;
+  /* border: 2px solid rgb(255, 255, 255); */
+  /* background-color: #ffc6c6; */
+  display: flex;
+  justify-content: space-between;
+}
+.addTask {
+  width: 40%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: var(--pri);
+  border-radius: 20px;
+}
+.allTask {
+    border-radius: 20px;
+    width: 55%;
+    background-color: #8dc6ff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    overflow:  auto;
+}
+.addTask form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+}
+.addTask form textarea,input{
+    outline: none;
+    padding: 10px 25px;
     width: 100%;
-    margin-top: 20px;
-    border: 2px solid rgb(255, 255, 255);
+    font-size: 25px ;
+    background-color: var(--tri2);
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.addTask textarea::placeholder,input::placeholder{
+  color: var(--pri);
+}
+.addTask form textarea{
+    height: 40vh;
+}
+.addTask form h3{
+    color: var(--tri2);
+    font-weight: 700;
+}
+.addTask form  button{
+    outline: none;
+    padding: 10px 25px;
+    width: 100%;
+    font-size: 25px ;
     background-color: var(--tri1);
+    border: none;
+    margin-bottom: 10px;
+    transition: all ease 0.3s;
+    border-radius: 5px;
+}
+.addTask form  button:active{
+    scale: 0.96;
+}
+.task{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #ffffffbe;
+  padding: 20px 30px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.task h5{
+  color: var(--tri2);
+  font-size: 30px;
+}
+.task button{
+  padding: 15px 30px;
+  color: var(--pri);
+  background-color: #15760c;
+  border: none;
+  font-size: 20px;
+  border-radius: 5px;
+  font-weight: 700;
 }
