@@ -102,9 +102,8 @@ section.allElems {
   width: 100%;
   padding: 40px;
   background-color: var(--tri2);
-  display: none; 
+  display: none;
   position: absolute;
-
 }
 .back {
   border-radius: 50%;
@@ -151,57 +150,59 @@ section.allElems {
   border-radius: 20px;
 }
 .allTask {
-    border-radius: 20px;
-    width: 55%;
-    background-color: #8dc6ff;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 30px;
-    overflow:  auto;
+  border-radius: 20px;
+  width: 55%;
+  background-color: #8dc6ff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  overflow: auto;
 }
-.addTask form{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 30px;
+.addTask form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
 }
-.addTask form textarea,input{
-    outline: none;
-    padding: 10px 25px;
-    width: 100%;
-    font-size: 25px ;
-    background-color: var(--tri2);
-    border: none;
-    margin-bottom: 10px;
-    border-radius: 5px;
+.addTask form textarea,
+input {
+  outline: none;
+  padding: 10px 25px;
+  width: 100%;
+  font-size: 25px;
+  background-color: var(--tri2);
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
-.addTask textarea::placeholder,input::placeholder{
+.addTask textarea::placeholder,
+input::placeholder {
   color: var(--pri);
 }
-.addTask form textarea{
-    height: 40vh;
+.addTask form textarea {
+  height: 40vh;
 }
-.addTask form h3{
-    color: var(--tri2);
-    font-weight: 700;
+.addTask form h3 {
+  color: var(--tri2);
+  font-weight: 700;
 }
-.addTask form  button{
-    outline: none;
-    padding: 10px 25px;
-    width: 100%;
-    font-size: 25px ;
-    background-color: var(--tri1);
-    border: none;
-    margin-bottom: 10px;
-    transition: all ease 0.3s;
-    border-radius: 5px;
+.addTask form button {
+  outline: none;
+  padding: 10px 25px;
+  width: 100%;
+  font-size: 25px;
+  background-color: var(--tri1);
+  border: none;
+  margin-bottom: 10px;
+  transition: all ease 0.3s;
+  border-radius: 5px;
 }
-.addTask form  button:active{
-    scale: 0.96;
+.addTask form button:active {
+  scale: 0.96;
 }
-.task{
+.task {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -211,11 +212,11 @@ section.allElems {
   border-radius: 5px;
   margin-bottom: 10px;
 }
-.task h5{
+.task h5 {
   color: var(--tri2);
   font-size: 30px;
 }
-.task button{
+.task button {
   padding: 15px 30px;
   color: var(--pri);
   background-color: #15760c;
@@ -224,7 +225,49 @@ section.allElems {
   border-radius: 5px;
   font-weight: 700;
 }
-.task button:active{
+.task button:active {
   scale: 0.95;
   cursor: progress;
+}
+
+.daily-planner-fullpage {
+  /* display: block; */
+}
+.daily-planner-fullpage h2 {
+  font-size: 60px;
+}
+
+.daily-planner-fullpage .day-planner {
+  background-color: var(--tri1);
+  height: 85%;
+  margin-top: 40px;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  overflow: auto;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.daily-planner-fullpage .day-planner .day-planner-time {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 49%;
+}
+.day-planner-time p{
+  position: absolute;
+  top: 5%;
+  left:1%;
+  font-size: 20px;
+}
+.day-planner .day-planner-time input {
+  /* background-color: #8dc6ff; */
+  padding: 20px 45px;
+  width: 100%;
+  font-size: 2 6px;
+  padding-top: 30px;
+  outline: none;
 }

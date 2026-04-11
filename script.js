@@ -68,9 +68,49 @@ function todList() {
         renderTask();
         taskInput.value = ''
         taskDetailsInput.value = ''
-       
-        
+
+
     })
 }
 
 todList();
+
+
+//? Daily Planner Full Page
+
+function dailyPlanner() {
+
+    let dayPlannerData = JSON.parse(localStorage.getItem('dayPlannerData')) || {};
+    let dayPlanner = document.querySelector('.day-planner');
+
+    var hours = Array.from({ length: 18 }, function (_, idx) {
+        return `${6 + idx}:00 - ${7 + idx}:00`;
+    })
+    let wholeDaySum = ''
+
+    hours.forEach(function (elem, idx) {
+        let saveData = dayPlannerData[idx] || "";
+        wholeDaySum += `<div class="day-planner-time">
+    <p>${elem}</p>
+    <input id ="${idx}" type="text" placeholder="..." value="${saveData}">
+    </div>`
+    })
+
+
+
+
+    dayPlanner.innerHTML = wholeDaySum;
+
+    let dayPlannerInput = document.querySelectorAll('.day-planner input');
+
+    dayPlannerInput.forEach(function (elem) {
+        elem.addEventListener('input', function () {
+
+            dayPlannerData[elem.id] = elem.value;
+            localStorage.setItem('dayPlannerData', JSON.stringify(dayPlannerData))
+        })
+    })
+
+}
+
+dailyPlanner();
