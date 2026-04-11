@@ -98,14 +98,11 @@ section.allElems {
 }
 .fullElem {
   margin-top: 7px;
-  /* border: 2px solid white; */
   height: 100%;
   width: 100%;
   padding: 40px;
-  /* font-size: 60px; */
   background-color: var(--tri2);
-  display: none; /* Ensure your JS switches this to 'flex' instead of 'block' */
-  /* flex-direction: column; */
+  display: none; 
   position: absolute;
 
 }
@@ -226,4 +223,8 @@ section.allElems {
   font-size: 20px;
   border-radius: 5px;
   font-weight: 700;
+}
+.task button:active{
+  scale: 0.95;
+  cursor: progress;
 }
