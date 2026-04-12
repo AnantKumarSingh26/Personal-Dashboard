@@ -72,7 +72,7 @@ function todList() {
 
     })
 }
-
+// ! Calling Todo List
 todList();
 
 
@@ -112,5 +112,25 @@ function dailyPlanner() {
     })
 
 }
-
+// ! Calling Daily Planner
 dailyPlanner();
+
+function motivationalQuote() {
+    // let quote =fetch('https://motivational-spark-api.vercel.app/api/quotes/random')
+
+    async function fetchQuote() {
+        let response = await fetch('https://motivational-spark-api.vercel.app/api/quotes/random')
+        let data = await response.json()
+        // console.log(data.quote);
+        // console.log(data.author);
+        let author = document.querySelector('.motivation-3 h5')
+        console.dir(author);
+        author.innerHTML = data.author
+
+        let quote = document.querySelector('.motivation-2 h2')
+        quote.innerHTML = data.quote
+    }
+    fetchQuote();
+}
+
+motivationalQuote()
