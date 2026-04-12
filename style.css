@@ -257,10 +257,10 @@ input::placeholder {
   position: relative;
   width: 49%;
 }
-.day-planner-time p{
+.day-planner-time p {
   position: absolute;
   top: 5%;
-  left:1%;
+  left: 1%;
   font-size: 20px;
 }
 .day-planner .day-planner-time input {
@@ -270,4 +270,75 @@ input::placeholder {
   font-size: 2 6px;
   padding-top: 30px;
   outline: none;
+}
+
+.motivational-fullpage {
+  position: relative;
+}
+
+.motivation-container {
+  height: 400px;
+  /* background-color: var(--sec); */
+  min-width: 60%;
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50px;
+  transform: translate(-50%, -50%);
+}
+.motivation-container::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: var(--tri1);
+  border-radius: 50px;
+  scale: 1.15;
+  filter: blur(150px);
+  z-index: 8;
+}
+.motivation-container .motivation-wrapper {
+  z-index: 10;
+  position: absolute;
+  /* height: 100%; */
+  width: 100%;
+  background-color: var(--tri2);
+  border-radius: 40px;
+}
+.motivation-container .motivation-wrapper img{
+  position: absolute;
+  top: 4.9%;
+  right: 5%;
+  height: 90px;
+  width:  90px;
+  opacity: 0.4;
+}
+.motivation-container .motivation-wrapper .motivation-1 {
+  /* height: 30px; */
+  background-color: var(--tri1);
+  padding: 15px 30px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+.motivation-container .motivation-wrapper .motivation-1 h2 {
+  color: var(--tri2);
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.motivation-container .motivation-wrapper .motivation-2{
+  margin-top: 15px;
+  padding: 15px ;
+}
+.motivation-container .motivation-wrapper .motivation-2 h2{
+  font-size: 35px;
+  font-weight: 500;
+  color: var(--tri1);
+}
+.motivation-container .motivation-wrapper .motivation-3{
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
