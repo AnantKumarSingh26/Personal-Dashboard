@@ -19,35 +19,118 @@ function openFeatures() {
 }
 openFeatures();
 
-let form = document.querySelector(".addTask form")
-let taskInput = document.querySelector(".addTask form input");
-let taskDetailsInput = document.querySelector(".addTask form textarea");
-
-let currentTask = [
-    {
-        task:'Check Mail',
-        details: "Check all mails for updates"
-    },
-    {
-        task:'Breakfast',
-        details: "Take breakfast before 9 AM"
-    }
-];
-
-form.addEventListener('submit',function(e){
-    e.preventDefault();
-     
-})
+// localStorage.clear(); 
 
 
-let allTask = document.querySelector('.allTask')
-let sum = '';
+function todList() {
 
-currentTask.forEach(function(elem){
-    sum+=`<div class="task">
+    let currentTask = JSON.parse(localStorage.getItem('currentTask')) || [];
+    let allTask = document.querySelector('.allTask');
+
+    //! Redering Task
+    function renderTask() {
+        localStorage.setItem('currentTask', JSON.stringify(currentTask))
+        let sum = '';
+
+        if (currentTask.length === 0) {
+            sum = `<div class="task">
+            <h5>Add Some Task in ToDo</h5>
+          </div>`;
+        } else {
+            currentTask.forEach(function (elem, idx) {
+                sum += `<div class="task">
             <h5>${elem.task}</h5>
-            <button>Mark as Completed
+            <button id="${idx}">Mark as Completed
             </button>
           </div>`
-})
-allTask.innerHTML = sum;
+            })
+        }
+        allTask.innerHTML = sum;
+    }
+
+    // Use Event Delegation: Attach one listener to the parent container
+    allTask.addEventListener('click', function (e) {
+        if (e.target.tagName === 'BUTTON') {
+            currentTask.splice(e.target.id, 1);
+            renderTask();
+        }
+    });
+
+    renderTask(); //?Calling Render Task for view List of Task
+
+    let form = document.querySelector(".addTask form")
+    let taskInput = document.querySelector(".addTask form input");
+    let taskDetailsInput = document.querySelector(".addTask form textarea");
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        currentTask.push({ task: taskInput.value, details: taskDetailsInput.value })
+        renderTask();
+        taskInput.value = ''
+        taskDetailsInput.value = ''
+
+
+    })
+}
+// ! Calling Todo List
+todList();
+
+
+//? Daily Planner Full Page
+
+function dailyPlanner() {
+
+    let dayPlannerData = JSON.parse(localStorage.getItem('dayPlannerData')) || {};
+    let dayPlanner = document.querySelector('.day-planner');
+
+    var hours = Array.from({ length: 18 }, function (_, idx) {
+        return `${6 + idx}:00 - ${7 + idx}:00`;
+    })
+    let wholeDaySum = ''
+
+    hours.forEach(function (elem, idx) {
+        let saveData = dayPlannerData[idx] || "";
+        wholeDaySum += `<div class="day-planner-time">
+    <p>${elem}</p>
+    <input id ="${idx}" type="text" placeholder="..." value="${saveData}">
+    </div>`
+    })
+
+
+
+
+    dayPlanner.innerHTML = wholeDaySum;
+
+    let dayPlannerInput = document.querySelectorAll('.day-planner input');
+
+    dayPlannerInput.forEach(function (elem) {
+        elem.addEventListener('input', function () {
+
+            dayPlannerData[elem.id] = elem.value;
+            localStorage.setItem('dayPlannerData', JSON.stringify(dayPlannerData))
+        })
+    })
+
+}
+// ! Calling Daily Planner
+dailyPlanner();
+
+function motivationalQuote() {
+    // let quote =fetch('https://motivational-spark-api.vercel.app/api/quotes/random')
+
+    async function fetchQuote() {
+        let response = await fetch('https://motivational-spark-api.vercel.app/api/quotes/random')
+        let data = await response.json()
+        // console.log(data.quote);
+        // console.log(data.author);
+        let author = document.querySelector('.motivation-3 h5')
+        console.dir(author);
+        author.innerHTML = data.author
+
+        let quote = document.querySelector('.motivation-2 h2')
+        quote.innerHTML = data.quote
+    }
+    fetchQuote();
+}
+
+motivationalQuote()
