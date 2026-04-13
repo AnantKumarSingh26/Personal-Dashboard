@@ -17,7 +17,7 @@ function openFeatures() {
     })
 
 }
-openFeatures();
+// openFeatures();
 
 // localStorage.clear(); 
 
@@ -73,7 +73,7 @@ function todList() {
     })
 }
 // ! Calling Todo List
-todList();
+// todList();
 
 
 //? Daily Planner Full Page
@@ -113,7 +113,7 @@ function dailyPlanner() {
 
 }
 // ! Calling Daily Planner
-dailyPlanner();
+// dailyPlanner();
 
 function motivationalQuote() {
     // let quote =fetch('https://motivational-spark-api.vercel.app/api/quotes/random')
@@ -133,4 +133,39 @@ function motivationalQuote() {
     fetchQuote();
 }
 
-motivationalQuote()
+// motivationalQuote()
+
+let totalSeconds = 25 * 60;
+let timer = document.querySelector('.pomodoro-timer h1')
+let startBtn = document.querySelector('.start-timer');
+let pauseBtn = document.querySelector('.pause-timer');
+let resetBtn = document.querySelector('.reset-timer');
+let timerInterval; // Declare the variable to store the interval ID
+
+function updateTime() {
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+    timer.innerHTML = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+}
+
+function startTimer() {
+    clearInterval(timerInterval); // Now safe to call because timerInterval is declared
+    timerInterval = setInterval(function () {
+        --totalSeconds;
+        updateTime()
+    }, 1000)
+}
+
+function pauseTimer() {
+    clearInterval(timerInterval)
+}
+
+function resetTimer() {
+    totalSeconds = 25 * 60;
+    clearInterval(timerInterval)
+    updateTime()
+}
+
+startBtn.addEventListener('click', startTimer);
+pauseBtn.addEventListener('click', pauseTimer);
+resetBtn.addEventListener('click', resetTimer)
