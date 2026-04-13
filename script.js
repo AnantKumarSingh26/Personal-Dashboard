@@ -17,7 +17,7 @@ function openFeatures() {
     })
 
 }
-// openFeatures();
+openFeatures();
 
 // localStorage.clear(); 
 
@@ -73,7 +73,7 @@ function todList() {
     })
 }
 // ! Calling Todo List
-// todList();
+todList();
 
 
 //? Daily Planner Full Page
@@ -113,7 +113,7 @@ function dailyPlanner() {
 
 }
 // ! Calling Daily Planner
-// dailyPlanner();
+dailyPlanner();
 
 function motivationalQuote() {
     // let quote =fetch('https://motivational-spark-api.vercel.app/api/quotes/random')
@@ -124,7 +124,7 @@ function motivationalQuote() {
         // console.log(data.quote);
         // console.log(data.author);
         let author = document.querySelector('.motivation-3 h5')
-        console.dir(author);
+        // console.dir(author);
         author.innerHTML = data.author
 
         let quote = document.querySelector('.motivation-2 h2')
@@ -133,8 +133,12 @@ function motivationalQuote() {
     fetchQuote();
 }
 
-// motivationalQuote()
+motivationalQuote()
 
+
+
+function pomodoroTimer(){
+    
 let totalSeconds = 25 * 60;
 let timer = document.querySelector('.pomodoro-timer h1')
 let startBtn = document.querySelector('.start-timer');
@@ -152,7 +156,9 @@ function startTimer() {
     clearInterval(timerInterval); // Now safe to call because timerInterval is declared
     timerInterval = setInterval(function () {
         --totalSeconds;
-        updateTime()
+        if(totalSeconds>=0){
+            updateTime()
+        }
     }, 1000)
 }
 
@@ -169,3 +175,14 @@ function resetTimer() {
 startBtn.addEventListener('click', startTimer);
 pauseBtn.addEventListener('click', pauseTimer);
 resetBtn.addEventListener('click', resetTimer)
+}
+
+pomodoroTimer();
+
+async function weatherApiCall(){
+    var response = await fetch(`${CONFIG.BASE_URL}?key=${CONFIG.WEATHER_API_KEY}&q=${CONFIG.LOCATION}`)
+    let data = await response.json()
+    console.log(data);
+    
+}
+weatherApiCall();

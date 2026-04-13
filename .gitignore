@@ -1,0 +1,13 @@
+# Ignore your API keys
+config.js
+
+# Ignore Node.js folders (if you use them later)
+node_modules/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore build files (for your Unity projects)
+[Bb]uild/
+[Ll]ibrary/
