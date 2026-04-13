@@ -1,118 +1,132 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <body>
+    <div id="main">
+      <!-- <nav></nav> -->
+      <section class="allElems">
+        <header>
 
-<body>
-  <div id="main">
-    <!-- <nav></nav> -->
-    <section class="allElems">
-      <div class="todo elem" id="0">
-        <img src="https://wallpapercave.com/wp/wp7664129.jpg" alt="" />
-        <h2>To-Do List</h2>
-      </div>
-      <div class="daily elem" id="1">
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/3bb5f691632079.5e372adaa9f70.png"
-          alt="" />
-        <h2>Daily Planner</h2>
-      </div>
-      <div class="moti elem" id="2">
-        <img src="https://cdn.pixabay.com/photo/2023/05/02/15/52/support-7965543_1280.jpg" alt="" />
-        <h2>Motivation</h2>
-      </div>
-      <div class="pomo elem" id="3">
-        <img
-          src="https://media.newyorker.com/photos/68c877e9b3fdd0d2ef2f6085/2:2/w_2560%2Cc_limit/OpenQuestions_TimeManagement_final-1.gif"
-          alt="" />
-        <h2>Pomodoro Timer</h2>
-      </div>
-      <div class="goals elem" id="4">
-        <img
-          src="https://thumbs.dreamstime.com/b/red-arrow-hits-center-target-brightly-lit-shows-achievement-goal-attained-successful-aim-focus-success-precise-shot-excellent-348460548.jpg"
-          alt="" />
-        <h2>Daily Goals</h2>
-      </div>
-    </section>
-<!-- TO DO List Full Page -->
-    <section class="fullElem todo-list-fullpage">
-      <button class="back" id="0">
-        <i class="ri-close-circle-fill"></i>
-      </button>
-      <h2>Your Personalised To-Do List</h2>
-      <div class="todo-container">
-        <div class="addTask">
-          <form action="">
-            <h3>Add Task</h3>
-            <input type="text" placeholder="Enter Task Name" name="" id="">
-            <textarea placeholder="Enter Details" name="" id=""></textarea>
-            <button>Add Task</button>
-          </form>
+        </header>
+        <div class="allFeatures">
+          <div class="todo elem" id="0">
+            <img src="https://wallpapercave.com/wp/wp7664129.jpg" alt="" />
+            <h2>To-Do List</h2>
+          </div>
+          <div class="daily elem" id="1">
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/3bb5f691632079.5e372adaa9f70.png"
+              alt=""
+            />
+            <h2>Daily Planner</h2>
+          </div>
+          <div class="moti elem" id="2">
+            <img
+              src="https://cdn.pixabay.com/photo/2023/05/02/15/52/support-7965543_1280.jpg"
+              alt=""
+            />
+            <h2>Motivation</h2>
+          </div>
+          <div class="pomo elem" id="3">
+            <img
+              src="https://media.newyorker.com/photos/68c877e9b3fdd0d2ef2f6085/2:2/w_2560%2Cc_limit/OpenQuestions_TimeManagement_final-1.gif"
+              alt=""
+            />
+            <h2>Pomodoro Timer</h2>
+          </div>
+          <div class="goals elem" id="4">
+            <img
+              src="https://thumbs.dreamstime.com/b/red-arrow-hits-center-target-brightly-lit-shows-achievement-goal-attained-successful-aim-focus-success-precise-shot-excellent-348460548.jpg"
+              alt=""
+            />
+            <h2>Daily Goals</h2>
+          </div>
         </div>
-        <div class="allTask">
-          
+      </section>
+      <!-- TO DO List Full Page -->
+      <section class="fullElem todo-list-fullpage">
+        <button class="back" id="0">
+          <i class="ri-close-circle-fill"></i>
+        </button>
+        <h2>Your Personalised To-Do List</h2>
+        <div class="todo-container">
+          <div class="addTask">
+            <form action="">
+              <h3>Add Task</h3>
+              <input type="text" placeholder="Enter Task Name" name="" id="" />
+              <textarea placeholder="Enter Details" name="" id=""></textarea>
+              <button>Add Task</button>
+            </form>
+          </div>
+          <div class="allTask"></div>
         </div>
-      </div>
-    </section>
-<!-- Daily Planner Full Page-->
-    <section class="fullElem daily-planner-fullpage">
-      <button class="back" id="1">
-        <i class="ri-close-circle-fill"></i>
-      </button>
-      <h2>Plan your Day to be more Productivity</h2>
-      <div class="day-planner">
-        
-      </div>
-      <!-- <h1>Daily Planner</h1> -->
-    </section>
-<!-- Motivational Full page -->
-    <section class="fullElem motivational-fullpage">
-      <button class="back" id="2">
-        <i class="ri-close-circle-fill"></i>
-      </button>
-      <div class="motivation-container">
-        <div class="motivation-wrapper">
-       <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/quote-right.png" alt="quote-right"/>
+      </section>
+      <!-- Daily Planner Full Page-->
+      <section class="fullElem daily-planner-fullpage">
+        <button class="back" id="1">
+          <i class="ri-close-circle-fill"></i>
+        </button>
+        <h2>Plan your Day to be more Productivity</h2>
+        <div class="day-planner"></div>
+        <!-- <h1>Daily Planner</h1> -->
+      </section>
+      <!-- Motivational Full page -->
+      <section class="fullElem motivational-fullpage">
+        <button class="back" id="2">
+          <i class="ri-close-circle-fill"></i>
+        </button>
+        <div class="motivation-container">
+          <div class="motivation-wrapper">
+            <img
+              width="50"
+              height="50"
+              src="https://img.icons8.com/ios-filled/50/quote-right.png"
+              alt="quote-right"
+            />
             <div class="motivation-1">
               <h2>Quote of the Day</h2>
             </div>
             <div class="motivation-2">
-              <h2>
-              </h2>
+              <h2></h2>
             </div>
             <div class="motivation-3">
               <h5></h5>
             </div>
+          </div>
         </div>
-      </div>
-    </section>
-<!-- Pomodoro Timer -->
-    <section class="fullElem pomodoro-fullpage">
-      <button class="back" id="3">
-        <i class="ri-close-circle-fill"></i>
-      </button>
-      <h1>Study With me🙂</h1>
-      <div class="pomodoro-timer">
-        <h1>25:00</h1>
-        <button class="start-timer">Start</button>
-        <button class="pause-timer">Pause</button>
-        <button class="reset-timer">Reset</button>
-      </div>
-    </section>
-    <section class="fullElem daily-goals-fullpage">
-      <button class="back" id="4">
-        <i class="ri-close-circle-fill"></i>
-      </button>
-      <h1>Daily Goals</h1>
-    </section>
-  </div>
-  <script src="script.js"></script>
-</body>
-
+      </section>
+      <!-- Pomodoro Timer -->
+      <section class="fullElem pomodoro-fullpage">
+        <button class="back" id="3">
+          <i class="ri-close-circle-fill"></i>
+        </button>
+        <h1>Study With me🙂</h1>
+        <div class="pomodoro-timer">
+          <h1>25:00</h1>
+          <button class="start-timer">Start</button>
+          <button class="pause-timer">Pause</button>
+          <button class="reset-timer">Reset</button>
+        </div>
+      </section>
+      <section class="fullElem daily-goals-fullpage">
+        <button class="back" id="4">
+          <i class="ri-close-circle-fill"></i>
+        </button>
+        <h1>Daily Goals</h1>
+      </section>
+    </div>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
