@@ -342,3 +342,43 @@ input::placeholder {
   align-items: center;
   justify-content: flex-end;
 }
+
+.pomodoro-fullpage{
+  display: block;
+  position: relative;
+  /* border: 2px solid; */
+}
+.pomodoro-fullpage h1{
+  font-size: 50px;
+  
+}
+.pomodoro-fullpage .pomodoro-timer{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% ,-50%);
+  /* background-color: #f6b846; */
+  text-align: center;
+}
+.pomodoro-timer h1{
+  font-size: 140px;
+  font-weight:700;
+}
+.pomodoro-timer button{
+  background-color: var(--sec);
+  padding: 15px 40px;
+  font-size: 30px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  box-shadow:  0px 0px 15px var(--pri);
+  transition: all ease-in 0.2s;
+}
+.pomodoro-timer button:hover{
+  cursor: pointer;
+   box-shadow:  0px 0px 5px var(--pri);
+}
+.pomodoro-timer button:active{
+  scale: 0.95;
+  box-shadow: inset 0px 0px 10px black;
+}
