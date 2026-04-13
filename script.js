@@ -137,52 +137,79 @@ motivationalQuote()
 
 
 
-function pomodoroTimer(){
-    
-let totalSeconds = 25 * 60;
-let timer = document.querySelector('.pomodoro-timer h1')
-let startBtn = document.querySelector('.start-timer');
-let pauseBtn = document.querySelector('.pause-timer');
-let resetBtn = document.querySelector('.reset-timer');
-let timerInterval; // Declare the variable to store the interval ID
+function pomodoroTimer() {
 
-function updateTime() {
-    let minutes = Math.floor(totalSeconds / 60);
-    let seconds = totalSeconds % 60;
-    timer.innerHTML = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
-}
+    let totalSeconds = 25 * 60;
+    let timer = document.querySelector('.pomodoro-timer h1')
+    let startBtn = document.querySelector('.start-timer');
+    let pauseBtn = document.querySelector('.pause-timer');
+    let resetBtn = document.querySelector('.reset-timer');
+    let timerInterval; // Declare the variable to store the interval ID
 
-function startTimer() {
-    clearInterval(timerInterval); // Now safe to call because timerInterval is declared
-    timerInterval = setInterval(function () {
-        --totalSeconds;
-        if(totalSeconds>=0){
-            updateTime()
-        }
-    }, 1000)
-}
+    function updateTime() {
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
+        timer.innerHTML = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+    }
 
-function pauseTimer() {
-    clearInterval(timerInterval)
-}
+    function startTimer() {
+        clearInterval(timerInterval); // Now safe to call because timerInterval is declared
+        timerInterval = setInterval(function () {
+            --totalSeconds;
+            if (totalSeconds >= 0) {
+                updateTime()
+            }
+        }, 1000)
+    }
 
-function resetTimer() {
-    totalSeconds = 25 * 60;
-    clearInterval(timerInterval)
-    updateTime()
-}
+    function pauseTimer() {
+        clearInterval(timerInterval)
+    }
 
-startBtn.addEventListener('click', startTimer);
-pauseBtn.addEventListener('click', pauseTimer);
-resetBtn.addEventListener('click', resetTimer)
+    function resetTimer() {
+        totalSeconds = 25 * 60;
+        clearInterval(timerInterval)
+        updateTime()
+    }
+
+    startBtn.addEventListener('click', startTimer);
+    pauseBtn.addEventListener('click', pauseTimer);
+    resetBtn.addEventListener('click', resetTimer)
 }
 
 pomodoroTimer();
 
-async function weatherApiCall(){
-    var response = await fetch(`${CONFIG.BASE_URL}?key=${CONFIG.WEATHER_API_KEY}&q=${CONFIG.LOCATION}`)
-    let data = await response.json()
-    console.log(data);
+// async function weatherApiCall() {
     
-}
+//     let data = await response.json()
+//     console.log(data);
+// }
 weatherApiCall();
+
+async function weatherApiCall() {
+    let data;
+    const fallback = {
+        location: 'Mumbai',
+        current_temp: 34
+    }
+    try {
+        const response = await fetch(`${CONFIG.BASE_URL}?key=${CONFIG.WEATHER_API_KEY}&q=${CONFIG.LOCATION}`);
+
+        if(!response.ok){
+            throw new Error(`HTTP error! status : ${response.status}`);
+        }
+        data = await response.json();
+
+    }catch(error){
+        data = fallback
+    }
+    console.log(data.location.name);
+    console.log(data.current.temp_c);
+    // console.log(data);
+    let temp = document.querySelector('header h5')
+    let location = document.querySelector('header h4');
+    temp.innerHTML = data.current.temp_c;
+    location.innerHTML =data.location.name
+    let date = document.querySelector('header h2')
+    date.innerHTML = new Date();
+}
