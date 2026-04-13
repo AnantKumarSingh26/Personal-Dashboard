@@ -184,7 +184,7 @@ pomodoroTimer();
 //     let data = await response.json()
 //     console.log(data);
 // }
-weatherApiCall();
+
 
 async function weatherApiCall() {
     let data;
@@ -203,13 +203,41 @@ async function weatherApiCall() {
     }catch(error){
         data = fallback
     }
-    console.log(data.location.name);
-    console.log(data.current.temp_c);
-    // console.log(data);
-    let temp = document.querySelector('header h5')
-    let location = document.querySelector('header h4');
-    temp.innerHTML = data.current.temp_c;
-    location.innerHTML =data.location.name
-    let date = document.querySelector('header h2')
-    date.innerHTML = new Date();
+    // console.log(data.location.name);
+    // console.log(data.current.temp_c);
+    console.log(data);
+    let temp = document.querySelector('.temp')
+    let location = document.querySelector('.place');
+    let weather_condition =  document.querySelector('.weather-condition');
+    let precepetaiton = document.querySelector('.prec');
+    let humidity =  document.querySelector('.humid');
+    let wind = document.querySelector('.wind')
+
+    temp.innerHTML = `${data.current.temp_c} °C`;
+    location.innerHTML = `<i class="ri-map-pin-2-fill"></i> ${data.location.name}`
+    weather_condition.innerHTML = data.current.condition.text;
+    precepetaiton.innerHTML = 'Precipitation : '+data.current.precip_mm;
+    humidity.innerHTML = 'Humidity : ' +data.current.humidity+'%';
+    wind.innerHTML ='Wind : '+ data.current.wind_kph+'%';
+
+    let date = document.querySelector('.head-left .date');
+    let time = document.querySelector('.time');
+    setInterval(()=>{let now =new Date();
+        const formattedDayTime = now.toLocaleString('en-US',{
+            weekday: 'long',
+            hour:'2-digit',
+            hour12:true,
+            minute :'2-digit',
+            second:'2-digit'
+        })
+        const formattedDate = now.toLocaleString('en-US',{
+            day: 'numeric',
+            month: 'long',
+            year : 'numeric'
+        })
+        date.innerHTML = formattedDate
+        time.innerHTML = formattedDayTime
+    },1000)
 }
+
+weatherApiCall();

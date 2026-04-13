@@ -63,10 +63,10 @@ section.allElems {
   justify-content: space-evenly;
   align-items: self-start;
   flex-wrap: wrap;*/
-  gap: 40px; 
+  gap: 40px;
   position: absolute;
 }
-.allFeatures{
+.allFeatures {
   display: flex;
   justify-content: space-evenly;
   align-items: self-start;
@@ -74,11 +74,46 @@ section.allElems {
   gap: 40px;
   margin-top: 30px;
 }
-header{
+header {
   width: 100%;
   min-height: 40%;
-  background-color: #2c3e50;
+  /* background-color: #2c3e50; */
   border-radius: 20px;
+  display: grid;
+  grid-template-columns: 0.7fr 0.3fr;
+  padding: 10px 40px;
+  /* background-image: url('https://images.pexels.com/photos/1102918/pexels-photo-1102918.jpeg'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.232), rgba(101, 68, 68, 0.503)),
+    url("https://images.pexels.com/photos/1102918/pexels-photo-1102918.jpeg");
+}
+.head-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.head-right {
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid; */
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.right-top{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.right-down{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.right-down p{
+  font-size:25px;
 }
 .elem {
   background-color: var(--tri1);
@@ -320,12 +355,12 @@ input::placeholder {
   background-color: var(--tri2);
   border-radius: 40px;
 }
-.motivation-container .motivation-wrapper img{
+.motivation-container .motivation-wrapper img {
   position: absolute;
   top: 4.9%;
   right: 5%;
   height: 90px;
-  width:  90px;
+  width: 90px;
   opacity: 0.4;
 }
 .motivation-container .motivation-wrapper .motivation-1 {
@@ -341,58 +376,63 @@ input::placeholder {
   font-size: 30px;
 }
 
-.motivation-container .motivation-wrapper .motivation-2{
+.motivation-container .motivation-wrapper .motivation-2 {
   margin-top: 15px;
-  padding: 15px ;
+  padding: 15px;
 }
-.motivation-container .motivation-wrapper .motivation-2 h2{
+.motivation-container .motivation-wrapper .motivation-2 h2 {
   font-size: 35px;
   font-weight: 500;
   color: var(--tri1);
 }
-.motivation-container .motivation-wrapper .motivation-3{
+.motivation-container .motivation-wrapper .motivation-3 {
   padding: 15px 30px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.pomodoro-fullpage{
+.pomodoro-fullpage {
   /* display: block; */
   position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), 
+        url('https://wallpapercave.com/wp/wp12981863.jpg');
+ 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   /* border: 2px solid; */
 }
-.pomodoro-fullpage h1{
+.pomodoro-fullpage h1 {
   font-size: 50px;
-  
 }
-.pomodoro-fullpage .pomodoro-timer{
+.pomodoro-fullpage .pomodoro-timer {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50% ,-50%);
-  /* background-color: #f6b846; */
+  transform: translate(-50%, -50%);
+
   text-align: center;
 }
-.pomodoro-timer h1{
+.pomodoro-timer h1 {
   font-size: 140px;
-  font-weight:700;
+  font-weight: 700;
 }
-.pomodoro-timer button{
-  background-color: var(--sec);
+.pomodoro-timer button {
+  background-color: var(--tri2);
   padding: 15px 40px;
   font-size: 30px;
   margin: 10px;
   border: none;
   border-radius: 10px;
-  box-shadow:  0px 0px 15px var(--pri);
+  box-shadow: 0px 0px 15px var(--pri);
   transition: all ease-in 0.2s;
 }
-.pomodoro-timer button:hover{
+.pomodoro-timer button:hover {
   cursor: pointer;
-   box-shadow:  0px 0px 5px var(--pri);
+  box-shadow: 0px 0px 5px var(--pri);
 }
-.pomodoro-timer button:active{
+.pomodoro-timer button:active {
   scale: 0.95;
   box-shadow: inset 0px 0px 10px black;
 }
