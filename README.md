@@ -1,6 +1,7 @@
 # Personal Productivity Dashboard
 
 A sleek, minimalist, and functional web-based dashboard designed to streamline your daily workflow. This project combines essential productivity tools—like a Pomodoro timer, To-Do list, and Daily Planner—into a single, beautiful interface.
+![Preview of Page](image.png)
 
 ## 🚀 Features
 
