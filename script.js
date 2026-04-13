@@ -137,52 +137,107 @@ motivationalQuote()
 
 
 
-function pomodoroTimer(){
-    
-let totalSeconds = 25 * 60;
-let timer = document.querySelector('.pomodoro-timer h1')
-let startBtn = document.querySelector('.start-timer');
-let pauseBtn = document.querySelector('.pause-timer');
-let resetBtn = document.querySelector('.reset-timer');
-let timerInterval; // Declare the variable to store the interval ID
+function pomodoroTimer() {
 
-function updateTime() {
-    let minutes = Math.floor(totalSeconds / 60);
-    let seconds = totalSeconds % 60;
-    timer.innerHTML = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
-}
+    let totalSeconds = 25 * 60;
+    let timer = document.querySelector('.pomodoro-timer h1')
+    let startBtn = document.querySelector('.start-timer');
+    let pauseBtn = document.querySelector('.pause-timer');
+    let resetBtn = document.querySelector('.reset-timer');
+    let timerInterval; // Declare the variable to store the interval ID
 
-function startTimer() {
-    clearInterval(timerInterval); // Now safe to call because timerInterval is declared
-    timerInterval = setInterval(function () {
-        --totalSeconds;
-        if(totalSeconds>=0){
-            updateTime()
-        }
-    }, 1000)
-}
+    function updateTime() {
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
+        timer.innerHTML = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+    }
 
-function pauseTimer() {
-    clearInterval(timerInterval)
-}
+    function startTimer() {
+        clearInterval(timerInterval); // Now safe to call because timerInterval is declared
+        timerInterval = setInterval(function () {
+            --totalSeconds;
+            if (totalSeconds >= 0) {
+                updateTime()
+            }
+        }, 1000)
+    }
 
-function resetTimer() {
-    totalSeconds = 25 * 60;
-    clearInterval(timerInterval)
-    updateTime()
-}
+    function pauseTimer() {
+        clearInterval(timerInterval)
+    }
 
-startBtn.addEventListener('click', startTimer);
-pauseBtn.addEventListener('click', pauseTimer);
-resetBtn.addEventListener('click', resetTimer)
+    function resetTimer() {
+        totalSeconds = 25 * 60;
+        clearInterval(timerInterval)
+        updateTime()
+    }
+
+    startBtn.addEventListener('click', startTimer);
+    pauseBtn.addEventListener('click', pauseTimer);
+    resetBtn.addEventListener('click', resetTimer)
 }
 
 pomodoroTimer();
 
-async function weatherApiCall(){
-    var response = await fetch(`${CONFIG.BASE_URL}?key=${CONFIG.WEATHER_API_KEY}&q=${CONFIG.LOCATION}`)
-    let data = await response.json()
-    console.log(data);
+// async function weatherApiCall() {
     
+//     let data = await response.json()
+//     console.log(data);
+// }
+
+
+async function weatherApiCall() {
+    let data;
+    const fallback = {
+        location: 'Mumbai',
+        current_temp: 34
+    }
+    try {
+        const response = await fetch(`${CONFIG.BASE_URL}?key=${CONFIG.WEATHER_API_KEY}&q=${CONFIG.LOCATION}`);
+
+        if(!response.ok){
+            throw new Error(`HTTP error! status : ${response.status}`);
+        }
+        data = await response.json();
+
+    }catch(error){
+        data = fallback
+    }
+    // console.log(data.location.name);
+    // console.log(data.current.temp_c);
+    console.log(data);
+    let temp = document.querySelector('.temp')
+    let location = document.querySelector('.place');
+    let weather_condition =  document.querySelector('.weather-condition');
+    let precepetaiton = document.querySelector('.prec');
+    let humidity =  document.querySelector('.humid');
+    let wind = document.querySelector('.wind')
+
+    temp.innerHTML = `${data.current.temp_c} °C`;
+    location.innerHTML = `<i class="ri-map-pin-2-fill"></i> ${data.location.name}`
+    weather_condition.innerHTML = data.current.condition.text;
+    precepetaiton.innerHTML = 'Precipitation : '+data.current.precip_mm;
+    humidity.innerHTML = 'Humidity : ' +data.current.humidity+'%';
+    wind.innerHTML ='Wind : '+ data.current.wind_kph+'%';
+
+    let date = document.querySelector('.head-left .date');
+    let time = document.querySelector('.time');
+    setInterval(()=>{let now =new Date();
+        const formattedDayTime = now.toLocaleString('en-US',{
+            weekday: 'long',
+            hour:'2-digit',
+            hour12:true,
+            minute :'2-digit',
+            second:'2-digit'
+        })
+        const formattedDate = now.toLocaleString('en-US',{
+            day: 'numeric',
+            month: 'long',
+            year : 'numeric'
+        })
+        date.innerHTML = formattedDate
+        time.innerHTML = formattedDayTime
+    },1000)
 }
+
 weatherApiCall();
