@@ -240,4 +240,34 @@ async function weatherApiCall() {
     },1000)
 }
 
+
+function initDailyGoalsCountdown() {
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 10); // Set launch date 10 days from now
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const d = document.getElementById("dg-days");
+        const h = document.getElementById("dg-hours");
+        const m = document.getElementById("dg-minutes");
+        const s = document.getElementById("dg-seconds");
+
+        if (d) d.textContent = String(days).padStart(2, '0');
+        if (h) h.textContent = String(hours).padStart(2, '0');
+        if (m) m.textContent = String(minutes).padStart(2, '0');
+        if (s) s.textContent = String(seconds).padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+}
+
 weatherApiCall();
+initDailyGoalsCountdown();
